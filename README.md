@@ -43,3 +43,13 @@ This is what it looks like installed on a small tabletop dobsonian:
 ![alt text](https://github.com/vlaate/DobsonianDSC/blob/master/img/webConfig_sm.png "Web Configuration")
 
 
+# Dependencies/Libraries/Packages
+
+Board Manager Dependencies
+
+1. esp32 by Espressif Systems v2.0.17
+
+Libraries
+
+1. ESP32Encoder by Kevin Harrington v0.11.7
+2. ArduinoJson by Benoit Blanchon v6.19.4

@@ -197,7 +197,7 @@ void handleRoot() {
 void setupEncoders()
 {
   // It's very important to enable pull up resistors in order to work with the NPN open collector outputs:
-  ESP32Encoder::useInternalWeakPullResistors = UP;
+  ESP32Encoder::useInternalWeakPullResistors = puType::up;
 
   // flip the pins used by Altitude encoder if the web configuration says so:
   if (conf.getBool("flpalt"))
