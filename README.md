@@ -1,30 +1,36 @@
-# DobsonianDSC
-[[English]](https://github.com/vlaate/DobsonianDSC)
-[[Español]](https://github.com/vlaate/DobsonianDSC/blob/master/README.es.md)
+# Ezulwini Dobsonian DSC
+
+This is my (Kgotso Koete) implementation of the original Dobsonian DSC project created by Vladimir Atehortúa. The original project can be found at [vlaate/DobsonianDSC](https://github.com/vlaate/DobsonianDSC).
+
+## Project Overview
 
 Amateur astronomers want to know where their telescope is pointing at. For this reason, many commercial telescopes (like the Orion IntelliScope) come equipped with "push to" features, often based on high precision optical rotary encoders attached to the telescope mount, and a hand control device with a database of coordinates of thousands of stars and other sky objects.
-
-There are also commercial Digital Setting Circles, which are kits sold for telescope owners to adapt to their existing telescope, in order to give it "push to" features, costing a few hundred dollars.
 
 The mobile app [SkySafari](https://skysafariastronomy.com/) comes with a celestial database that is often more up-to-date, and it's user interface (a visual representation of the night sky) can be considered superior to what text lines on a push-to hand controller allow.
 
 This project is an open source implementation of Digital Setting Circles for dobsonian telescopes. By using two inexpensive optical encoders and an ESP32 microcontroller it enables amateur astronomers to connect their dobsonian telescope to the SkySafari app.
 
-Particular emphasis has been placed on making sure anybody can build the circuit regardless of their experience (or lack thereof) with electronics or arduino, including a step-by-step guide for a very simple implementation that requires no soldering.
+## Implementation Details
 
-This DSC achieves the following:
+This is what my implementation looks like:
 
-* Absolute minimum number of components, making it simple and inexpensive. (The bill of materials is under **$40**)
-* Easy to build, no soldering required.
-* Wireless communication with the SkySafari app, No need for a wired handheld control.
-* Ability to connect to an external WiFi (to maintain access to the internet while using the DSC)
-* Web configuration page for easily configuring everything: WiFi settings/password, encoder resolutions, flipping encoder pins, notification API/keys, device name.
-* Bluetooth support.
+![alt text](my-implementation/images/20250125_175247.jpg "My DSC Implementation")
 
-This is what it looks like installed on a small tabletop dobsonian:
+You can watch my build video on YouTube (coming soon) or download it from:
+- [Video download link](https://youtube.com/shorts/t46OHvNqT0E)
 
-![alt text](https://github.com/vlaate/DobsonianDSC/blob/master/img/full.jpg "Mini Dob with DSC")
+## Experiment Outcomes
 
+While I thoroughly enjoyed building the DSC, I found that the 2 star alignment proved to be a hassle when finding deep sky objects that required more accuracy. This led me to implement a Raspberry Pi Platesolving E-Finder called the Cedar E-Finder by Steven Rosenthal.
+
+The Cedar E-Finder:
+- Can be connected to SkySafari
+- Has a standalone web page that displays RA/Dec coordinates
+- Features a standalone catalogue (coming soon)
+
+## Acknowledgements
+
+I would like to extend my sincere thanks to Vladimir Atehortúa for creating the original DSC project. His work provided me with a solid foundation to build upon and learn from.
 
 ## Documentation
 
@@ -36,11 +42,15 @@ This is what it looks like installed on a small tabletop dobsonian:
 
 ## Pictures
 
-![alt text](https://github.com/vlaate/DobsonianDSC/blob/master/img/full_close.jpg "Close up AZ")
-![alt text](https://github.com/vlaate/DobsonianDSC/blob/master/img/Alt_encoder_1.jpg "Alt Encoder 1")
-![alt text](https://github.com/vlaate/DobsonianDSC/blob/master/img/Alt_encoder_2.jpg "Alt Encoder 2")
-![alt text](https://github.com/vlaate/DobsonianDSC/blob/master/img/components.jpg "Components")
-![alt text](https://github.com/vlaate/DobsonianDSC/blob/master/img/webConfig_sm.png "Web Configuration")
+<p style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
+  <img src="my-implementation/images/20250119_165343.jpg" alt="Image 1" style="max-width: 300px;">
+  <img src="my-implementation/images/20250119_165353.jpg" alt="Image 2" style="max-width: 300px;">
+  <img src="my-implementation/images/20250125_175209.jpg" alt="Image 3" style="max-width: 300px;">
+  <img src="my-implementation/images/20250125_175233.jpg" alt="Image 4" style="max-width: 300px;">
+  <img src="my-implementation/images/20250125_175242.jpg" alt="Image 5" style="max-width: 300px;">
+  <img src="my-implementation/images/20250125_175247.jpg" alt="Image 6" style="max-width: 300px;">
+  <img src="my-implementation/images/20250205_003113.jpg" alt="Image 7" style="max-width: 300px;">
+</p>
 
 
 # Dependencies/Libraries/Packages
