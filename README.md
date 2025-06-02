@@ -49,7 +49,7 @@ I would like to extend my sincere thanks to Vladimir Atehortúa for creating the
 | ![Image 5](my-implementation/images/20250125_175242.jpg) | ![Image 6](my-implementation/images/20250125_175247.jpg) |
 | ![Image 7](my-implementation/images/20250205_003113.jpg) | |
 
-## System Overview
+## System Overview - AI generated (Windsurf), please read with caution
 
 ```mermaid
 graph TD
