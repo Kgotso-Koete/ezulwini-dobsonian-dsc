@@ -42,15 +42,12 @@ I would like to extend my sincere thanks to Vladimir Atehortúa for creating the
 
 ## Pictures
 
-<p style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
-  <img src="my-implementation/images/20250119_165343.jpg" alt="Image 1" style="max-width: 300px;">
-  <img src="my-implementation/images/20250119_165353.jpg" alt="Image 2" style="max-width: 300px;">
-  <img src="my-implementation/images/20250125_175209.jpg" alt="Image 3" style="max-width: 300px;">
-  <img src="my-implementation/images/20250125_175233.jpg" alt="Image 4" style="max-width: 300px;">
-  <img src="my-implementation/images/20250125_175242.jpg" alt="Image 5" style="max-width: 300px;">
-  <img src="my-implementation/images/20250125_175247.jpg" alt="Image 6" style="max-width: 300px;">
-  <img src="my-implementation/images/20250205_003113.jpg" alt="Image 7" style="max-width: 300px;">
-</p>
+| Column 1 | Column 2 |
+|----------|----------|
+| ![Image 1](my-implementation/images/20250119_165343.jpg) | ![Image 2](my-implementation/images/20250119_165353.jpg) |
+| ![Image 3](my-implementation/images/20250125_175209.jpg) | ![Image 4](my-implementation/images/20250125_175233.jpg) |
+| ![Image 5](my-implementation/images/20250125_175242.jpg) | ![Image 6](my-implementation/images/20250125_175247.jpg) |
+| ![Image 7](my-implementation/images/20250205_003113.jpg) | |
 
 
 # Dependencies/Libraries/Packages
