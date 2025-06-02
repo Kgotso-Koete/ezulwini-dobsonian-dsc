@@ -49,6 +49,136 @@ I would like to extend my sincere thanks to Vladimir Atehortúa for creating the
 | ![Image 5](my-implementation/images/20250125_175242.jpg) | ![Image 6](my-implementation/images/20250125_175247.jpg) |
 | ![Image 7](my-implementation/images/20250205_003113.jpg) | |
 
+## System Overview
+
+```mermaid
+graph TD
+    A[ESP32 Microcontroller] --> B[Encoder Interface]
+    B --> C[Azimuth Encoder]
+    B --> D[Altitude Encoder]
+    A --> E[WiFi/Bluetooth]
+    E --> F[SkySafari]
+    
+    style A fill:#e3f2fd,stroke:#000
+    style B fill:#e3f2fd,stroke:#000
+    style C fill:#e3f2fd,stroke:#000
+    style D fill:#e3f2fd,stroke:#000
+    style E fill:#e3f2fd,stroke:#000
+    style F fill:#e3f2fd,stroke:#000
+```
+
+## Hardware Components
+
+The system consists of three main hardware components:
+
+1. **ESP32 Microcontroller**
+   - Main brain of the system
+   - Handles all processing and communication
+   - Runs on 3.3V power supply
+
+2. **Optical Encoders**
+   - Two incremental optical encoders with NPN open collector outputs
+   - Connected to ESP32 pins:
+     - Azimuth Encoder: GPIO18 (A), GPIO19 (B)
+     - Altitude Encoder: GPIO25 (A), GPIO26 (B)
+   - Provides quadrature signals for precise position tracking
+
+3. **Power Supply**
+   - 5V USB power bank or similar power source
+   - Connected to ESP32 VIN and GND pins
+
+## Encoder Operation
+
+```mermaid
+graph LR
+    A[Encoder Rotation] --> B[Quadrature Signals]
+    B --> C[ESP32 Hardware Counter]
+    C --> D[Position Calculation]
+    D --> E[Coordinate Conversion]
+    E --> F[Output to SkySafari]
+    
+    style A fill:#e3f2fd,stroke:#000
+    style B fill:#e3f2fd,stroke:#000
+    style C fill:#e3f2fd,stroke:#000
+    style D fill:#e3f2fd,stroke:#000
+    style E fill:#e3f2fd,stroke:#000
+    style F fill:#e3f2fd,stroke:#000
+```
+
+### How Encoders Work
+
+1. **Quadrature Encoding**
+   - Each encoder has two output channels (A and B)
+   - Channels are 90° out of phase
+   - Allows direction detection and precise position tracking
+
+2. **Signal Processing**
+   - ESP32 uses hardware pulse counters
+   - Can track up to 20KHz pulse rate without missing steps
+   - No interrupts or polling needed
+
+## Communication Flow
+
+```mermaid
+sequenceDiagram
+    participant ESP32
+    participant SkySafari
+    participant User
+    
+    User->>ESP32: Rotate telescope
+    ESP32->>ESP32: Process encoder signals
+    ESP32->>ESP32: Calculate position
+    ESP32->>SkySafari: Send coordinates (WiFi/Bluetooth)
+    SkySafari->>User: Display position
+```
+
+## Data Format and SkySafari Integration
+
+1. **Coordinate System**
+   - Altitude: 0° to 90°
+   - Azimuth: 0° to 360°
+   - System uses steps per revolution (configurable)
+
+2. **Output Format**
+   - Sends coordinates in standard format that SkySafari understands
+   - Uses either WiFi or Bluetooth for communication
+   - Supports up to 3 simultaneous client connections
+
+3. **SkySafari Integration**
+   - SkySafari receives the encoder position data
+   - Converts raw encoder steps to celestial coordinates
+   - Displays the current pointing position of the telescope
+
+## Configuration Options
+
+The system can be configured through a web interface:
+
+- WiFi Settings:
+  - SSID
+  - Password
+
+- Bluetooth Settings:
+  - Device name
+
+- Encoder Settings:
+  - Azimuth steps per revolution
+  - Altitude steps per revolution
+
+## Setup Process
+
+1. Connect the encoders to the ESP32 pins
+2. Power the system
+3. Configure WiFi/Bluetooth settings
+4. Calibrate the encoders
+5. Connect to SkySafari
+
+## Troubleshooting Tips
+
+1. Ensure encoders are properly connected
+2. Check power supply voltage
+3. Verify WiFi/Bluetooth connections
+4. Calibrate if position readings are inaccurate
+
 
 # Dependencies/Libraries/Packages
 
